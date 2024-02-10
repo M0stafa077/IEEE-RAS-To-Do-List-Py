@@ -58,3 +58,18 @@ def add_task(task:dict) -> bool :
     except :    
         return False                                    # Return Flase if an error occured (Take Action)!!
     return True
+
+# --------------- A Software Interfaces removes a task from the json file --------------- #
+def remove_task(removed_task:dict) -> bool:
+    """
+        A function deletes a specific task from the json file
+        @param task : A dictionary contains all the required data about the task.
+        @returns : A boolean object identefies if the tasks removed successfully (Take Action if Not).
+    """
+    tasks["Tasks"].remove(removed_task)             # Removes the tasks from the Tasks list in the json file
+    try :
+        with open("Tasks.json", "w") as jsonFile:       # Open the json file for writing
+            json.dump(tasks, jsonFile, indent=4)        # Commit the changes to the json file
+    except :    
+        return False                                    # Return Flase if an error occured (Take Action)!!
+    return True
