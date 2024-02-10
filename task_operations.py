@@ -38,7 +38,7 @@ def create_task(task_name:str, task_due_data:datetime.datetime, priority:bool = 
         # Define the due date of the task.
         new_task["due_date"] = str(task_due_data.strftime("%a")) + ", " +  str(task_due_data.date()) 
     except :
-        print("Name is not specified")
+        print("Due-date is not specified")
         return {}
     new_task["priority"] = str(priority)    # Define the priority of the task. 
     new_task["details"] = details           # Defin the details of the task. 
